@@ -2,7 +2,9 @@
     margin: 0;
     padding: 0;
 }
-
+body{
+    background: #efefef;
+}
 .clearfix::after{
     display: table;
     content: '';
@@ -10,6 +12,11 @@
 }
 .topNavBar{
     padding:20px 16px 20px 16px;
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    box-sizing: border-box;
 }
 .topNavBar .logo{
     font-size: 24px;
@@ -17,7 +24,7 @@
     float: left;
 }
 
-.topNavBar .logo .rs{
+.topNavBar .logo .ty{
     color: #e6686a;
     margin-right: 4px;
 }
@@ -28,12 +35,13 @@
 
 .topNavBar > nav > ul{
     list-style: none;
+    float: right;
 }
 
 .topNavBar > nav > ul > li{
-    float: right;
     margin-left: 17px;
     margin-right: 17px;
+    display: inline-block;
 }
 
 .topNavBar > nav > ul > li a{
@@ -50,4 +58,100 @@
 
 .topNavBar > nav > ul > li a:hover{
     border-bottom: 3px solid #e06567;
+}
+
+.bg{
+    height: 517px;
+    background-image: url(./img/bg1.png);
+    background-position: center center;
+    background-size: cover;
+}
+
+.bg .cover{
+    height: inherit;
+    background-color: rgba(0,0,0,0.2);
+}
+
+.centerCard{
+    max-width: 940px;
+    margin-left:auto;
+    margin-right:auto;
+    background-color: #ffffff;
+}
+
+.picture > img{
+    width: 299px;
+    height: 347px;
+    float: left;
+}
+
+.centerCard .pictureAndContent .content .welcome{
+    background-color: #e6686a;
+    color: white;
+    padding: 4px 17px;
+    display: inline-block;
+    position: relative;
+}
+
+.centerCard .pictureAndContent .content .triangle{
+    border: 10px solid transparent;
+    border-left-color: #e6686a;
+    width: 0px;
+    height: 0px;
+    border-top-width: 0px;
+    position: absolute;
+    left: 4px;
+    top: 100%;
+}
+
+.content{
+    float: left;
+    margin-left:65px;
+    width: 470px;
+}
+
+.content h1{
+    margin-top:18px;
+}
+
+.centerCard .pictureAndContent{
+    padding: 50px;
+
+}
+
+.centerCard .content hr{
+    margin: 20px 0px;
+}
+
+.content table th{
+    text-align: left;
+    display: inline-block;
+    margin: 3px 100px 3px 0px;
+}
+
+.content table td{
+    color: #9da0a7;
+}
+
+.media{
+    background-color: #e6686a;
+    text-align: center;
+}
+
+.media .icon{
+    width: 30px;
+    height: 30px;
+    vertical-align: top;
+}
+
+.centerCard .media a{
+    display: inline-block;
+    border-radius: 50%;
+    height: 30px;
+    padding: 5px 5px;
+    margin: 16px;
+}
+
+.centerCard .media a:hover{
+    background: #CF5D5F;
 }
