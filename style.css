@@ -2,6 +2,13 @@
     margin: 0;
     padding: 0;
 }
+h1,h2,h3,h4,h5,h6{
+    font-weight: normal;
+}
+ol,ul{
+    list-style: none;
+}
+
 body{
     background: #efefef;
 }
@@ -30,7 +37,7 @@ body{
 }
 
 .topNavBar .logo .card{
-    color: #9a9da2;
+    color: #3d4451;
 }
 
 .topNavBar > nav > ul{
@@ -47,7 +54,7 @@ body{
 .topNavBar > nav > ul > li a{
     text-decoration: none;
     font-size: 12px;
-    color: #b7b7b7;
+    color: #3d4451;
     font-weight: bold;
     padding-top: 5px;
     padding-bottom: 5px;
@@ -77,6 +84,7 @@ body{
     margin-left:auto;
     margin-right:auto;
     background-color: #ffffff;
+    margin-top:-355px;
 }
 
 .picture > img{
@@ -150,8 +158,156 @@ body{
     height: 30px;
     padding: 5px 5px;
     margin: 16px;
+    text-decoration: none;
 }
 
 .centerCard .media a:hover{
     background: #CF5D5F;
+}
+
+.buttonAndPage{
+    text-align: center;
+}
+
+main .buttonAndPage .button{
+    font-size: 14px;
+    border: 1px solid #cdcfd1;
+    padding: 22px 52px;
+    text-decoration: none;
+    display: inline-block;
+    margin: 32px 0px;
+    color: #3d4451;
+    border-radius: 3px;
+    transition: box-shadow 0.2s;
+}
+
+main .buttonAndPage .button:hover{
+    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.2);
+}
+
+.buttonAndPage p{
+    line-height:32px;
+}
+.products h2,
+.skills h2{
+    font-size: 29px;
+    font-weight:bold;
+    text-align: center;
+    margin-top:40px;
+}
+
+.skills h3{
+    font-size: 14px;
+    line-height: 1.1;
+}
+.skills ol{
+    background: white;
+    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    margin:30px auto;
+    max-width: 940px;
+    padding: 42px 50px 10px;
+    box-sizing: border-box;
+}
+
+.skills ol li:nth-child(odd){
+    float: left;
+    width: 48%;
+}
+
+.skills ol li:nth-child(even){
+    float: right;
+    width: 48%;
+    box-sizing: border-box;
+}
+
+.skills .progressBar{
+    background: #FAE1E1;
+    height: 5px;
+    border-radius: 2px;
+    margin: 4px 0 40px;
+}
+
+.skills .progressBar .progress{
+    background: #E6686A;
+    height: inherit;
+    border-radius: 2px;
+    width: 70%;
+}
+
+.products{
+    text-align: center;
+}
+.products nav{
+    display: inline-block;
+    text-align: center;
+    margin-top: 32px;
+    vertical-align: top;
+}
+.products ol{
+    display: inline-block;
+    vertical-align: top;
+}
+
+.products ol > li{
+    float: left;
+    margin-left:40px;
+    cursor: pointer;
+}
+
+.products ol > li:first-child{
+    margin-left:0px;
+}
+
+.products .progressBar{
+    height: 5px;
+    background: white;
+    margin-top: 5px;
+    margin-bottom: 28px;
+    border-radius: 2px;
+}
+
+.products .progressBar .progress{
+    height: 100%;
+    background: #E6686A;
+    border-radius: 2px;
+    transition: all 0.3s;
+}
+
+.products .progressBar.state-1 .progress{
+    margin-left: 0px;
+    width: 50px;
+}
+
+.products .progressBar.state-2 .progress{
+    margin-left: 65px;
+    width: 50px;
+}
+
+.products .progressBar.state-3 .progress{
+    margin-left: 145px;
+    width: 93px;
+}
+
+.works{
+    margin: 0 auto;
+    max-width:940px;
+    position: relative;
+}
+
+.big{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+}
+
+.small{
+    position: absolute;
+    top:0px;
+    left: 645px;
+}
+
+.small2{
+    position: absolute;
+    top:312px;
+    left:645px;
 }
