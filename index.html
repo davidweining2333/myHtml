@@ -4,29 +4,38 @@
     <meta charset="UTF-8">
     <title>唐瑜的简历</title>
     <link rel="stylesheet" href="style.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tween.js/17.2.0/Tween.min.js"></script>
     <script src="//at.alicdn.com/t/font_457433_9e9yxwy06tfkcsor.js"></script>
-    <style type="text/css">
-        .icon {
-            width: 1em; height: 1em;
-            vertical-align: -0.15em;
-            fill: currentColor;
-            overflow: hidden;
-        }
-    </style>
+
 </head>
 <body>
-    <div class="topNavBar clearfix">
+    <div id="siteWelcome" class="site-welcome active">
+        <div class="loading"></div>
+    </div>
+    <div id="topNavBar" class="topNavBar clearfix">
         <div class="logo">
             <span class="ty">TY</span>
             <span class="card">card</span>
         </div>
-        <nav>
+        <nav class="menu">
             <ul class="nav clearfix" >
-                <li><a href="#">首页</a></li>
-                <li><a href="#">技能</a></li>
-                <li><a href="#">作品</a></li>
+                <li><a href="#siteHome">首页</a></li>
+                <li><a href="#siteSkills">技能</a></li>
+                <li><a href="#siteWorks">作品</a>
+                    <ul class="subMenu">
+                        <li>作品1</li>
+                        <li>作品2</li>
+                        <li>作品3</li>
+                    </ul>
+                </li>
                 <li><a href="#">图片</a></li>
-                <li><a href="#">博客</a></li>
+                <li><a href="#">博客</a>
+                    <ul class="subMenu">
+                        <li>博客1</li>
+                        <li>博客2</li>
+                        <li>博客3</li>
+                    </ul>
+                </li>
                 <li><a href="#">日历</a></li>
                 <li><a href="#">联系方式</a></li>
                 <li><a href="#">其他</a></li>
@@ -34,11 +43,10 @@
         </nav>
     </div>
     <div class="bg">
-        <div class="cover">
-        </div>
+        <div class="cover"></div>
     </div>
     <main>
-        <div class="centerCard">
+        <div data-x id="siteHome" class="centerCard">
             <div class="pictureAndContent clearfix">
                 <div class="picture">
                     <img src="./img/avatar.jpg" alt="头像">
@@ -51,7 +59,7 @@
                     <table>
                         <tr>
                             <th>年龄</th>
-                            <td>22</td>
+                            <td>23</td>
                         </tr>
                         <tr>
                             <th>地址</th>
@@ -113,7 +121,7 @@
             </p>
         </div>
     </main>
-    <section class="skills">
+    <section data-x id="siteSkills" class="skills">
         <h2>技能</h2>
         <ol class="clearfix">
             <li>
@@ -149,7 +157,7 @@
             </li>
         </ol>
     </section>
-    <section class="products">
+    <section data-x id="siteWorks" class="products">
         <h2>作品集</h2>
         <nav>
             <ol class="clearfix">
@@ -163,13 +171,13 @@
         </nav>
         <div class="works">
             <div class="big">
-                <img src="./img/1.png" alt="作品1">
+                <img src="./img/1.png" alt="作品1" width="602px" height="602px">
             </div>
             <div class="small">
-                <img src="./img/2.jpg" alt="作品2">
+                <img src="./img/2.png" alt="作品2" width="294px" height="294px">
             </div>
             <div class="small2">
-                <img src="./img/3.png" alt="作品3">
+                <img src="./img/3.png" alt="作品3" width="294px" height="294px">
             </div>
         </div>
     </section>

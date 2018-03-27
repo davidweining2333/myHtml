@@ -2,6 +2,32 @@
     margin: 0;
     padding: 0;
 }
+
+/*图标库图标样式*/
+.icon {
+    width: 1em; height: 1em;
+    vertical-align: -0.15em;
+    fill: currentColor;
+    overflow: hidden;
+}
+
+/*初始加载动画背景样式*/
+.site-welcome{
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #9da0a7;
+    z-index: 2;
+    justify-content: center;
+    align-items: center;
+}
+.site-welcome.active{
+    display: flex;
+}
+/*默认样式清除*/
 h1,h2,h3,h4,h5,h6{
     font-weight: normal;
 }
@@ -17,17 +43,37 @@ body{
     content: '';
     clear: both;
 }
+
+[data-x].offset{
+    transform: translateY(150px);
+}
+
+[data-x]{
+    transform: translateY(0);
+    transition: all 0.5s;
+}
+
 .topNavBar{
     padding:20px 16px 20px 16px;
     position: fixed;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
     width: 100%;
     box-sizing: border-box;
+    transition: 0.5s;
+    color: #3d4451;
+}
+
+.topNavBar.sticky{
+    background-color: white;
+    padding: 10px 6px 10px 16px;
+    z-index: 1;
+    box-shadow: 0 0 3px rgba(0,0,0,0.25);
+    color: #e6686a;
 }
 .topNavBar .logo{
     font-size: 24px;
-    font-family: 'Arial Black';
+    font-family: 'Arial Black', serif;
     float: left;
 }
 
@@ -49,28 +95,75 @@ body{
     margin-left: 17px;
     margin-right: 17px;
     display: inline-block;
+    position: relative;
 }
 
+.topNavBar > nav > ul > li >ul.subMenu{
+    display: none;
+}
+
+.topNavBar > nav > ul > li.active >ul.subMenu{
+    position: absolute;
+    top: 100%;
+    right: 0;
+    display: block;
+    background: white;
+    color: #3d4451;
+    animation: subMenuSilde .3s;
+    box-shadow: 0 0 3px rgba(0,0,0,0.5);
+}
+@keyframes subMenuSilde {
+    0%{
+        margin-right:100%;
+    }
+    100%{
+        margin-right:0;
+    }
+}
+.topNavBar > nav > ul > li >ul.subMenu >li{
+    white-space: nowrap;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor:pointer;
+}
 .topNavBar > nav > ul > li a{
     text-decoration: none;
     font-size: 12px;
-    color: #3d4451;
+    color: inherit;
     font-weight: bold;
     padding-top: 5px;
     padding-bottom: 5px;
     display: block;
     border-top: 3px solid transparent;
     border-bottom: 3px solid transparent;
+    position: relative;
 }
 
-.topNavBar > nav > ul > li a:hover{
-    border-bottom: 3px solid #e06567;
+.topNavBar > nav > ul > li.active a::after,
+.topNavBar > nav > ul > li.highlight a::after{
+    content: '';
+    display: block;
+    top: 100%;
+    background: #e06567;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    position: absolute;
+    animation: menuSlide 0.3s;
+}
+
+@keyframes menuSlide {
+    0%{
+        width: 0;
+    }
+    100%{
+        width: 100%;
+    }
 }
 
 .bg{
     height: 517px;
-    background-image: url(./img/bg1.png);
-    background-position: center center;
+    background: url(./img/bg1.png) center center;
     background-size: cover;
 }
 
@@ -104,9 +197,9 @@ body{
 .centerCard .pictureAndContent .content .triangle{
     border: 10px solid transparent;
     border-left-color: #e6686a;
-    width: 0px;
-    height: 0px;
-    border-top-width: 0px;
+    width: 0;
+    height: 0;
+    border-top-width: 0;
     position: absolute;
     left: 4px;
     top: 100%;
@@ -128,13 +221,13 @@ body{
 }
 
 .centerCard .content hr{
-    margin: 20px 0px;
+    margin: 20px 0;
 }
 
 .content table th{
     text-align: left;
     display: inline-block;
-    margin: 3px 100px 3px 0px;
+    margin: 3px 100px 3px 0;
 }
 
 .content table td{
@@ -175,14 +268,14 @@ main .buttonAndPage .button{
     padding: 22px 52px;
     text-decoration: none;
     display: inline-block;
-    margin: 32px 0px;
+    margin: 32px 0;
     color: #3d4451;
     border-radius: 3px;
     transition: box-shadow 0.2s;
 }
 
 main .buttonAndPage .button:hover{
-    box-shadow: 0px 4px 13px 0px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 13px 0 rgba(0, 0, 0, 0.2);
 }
 
 .buttonAndPage p{
@@ -202,7 +295,7 @@ main .buttonAndPage .button:hover{
 }
 .skills ol{
     background: white;
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.5);
+    box-shadow: 0 1px 5px 0 rgba(0, 0, 0, 0.5);
     margin:30px auto;
     max-width: 940px;
     padding: 42px 50px 10px;
@@ -225,6 +318,7 @@ main .buttonAndPage .button:hover{
     height: 5px;
     border-radius: 2px;
     margin: 4px 0 40px;
+    overflow: hidden;
 }
 
 .skills .progressBar .progress{
@@ -232,8 +326,13 @@ main .buttonAndPage .button:hover{
     height: inherit;
     border-radius: 2px;
     width: 70%;
+    transform: translateX(0);
+    transition: all 1s;
 }
 
+.skills.offset .progressBar .progress{
+    transform: translateX(-100%);
+}
 .products{
     text-align: center;
 }
@@ -255,7 +354,7 @@ main .buttonAndPage .button:hover{
 }
 
 .products ol > li:first-child{
-    margin-left:0px;
+    margin-left:0;
 }
 
 .products .progressBar{
@@ -274,7 +373,7 @@ main .buttonAndPage .button:hover{
 }
 
 .products .progressBar.state-1 .progress{
-    margin-left: 0px;
+    margin-left: 0;
     width: 50px;
 }
 
@@ -296,13 +395,13 @@ main .buttonAndPage .button:hover{
 
 .big{
     position: absolute;
-    top: 0px;
-    left: 0px;
+    top: 0;
+    left: 0;
 }
 
 .small{
     position: absolute;
-    top:0px;
+    top:0;
     left: 645px;
 }
 
@@ -310,4 +409,43 @@ main .buttonAndPage .button:hover{
     position: absolute;
     top:312px;
     left:645px;
+}
+
+/*初始加载动画*/
+.loading{
+    width:200px;
+    height:200px;
+    position: relative;
+}
+
+.loading::before,.loading::after{
+    content:'';
+    position: absolute;
+    width:0;
+    height:0;
+    background: black;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    margin:auto;
+    border-radius: 50%;
+    animation:s 1.5s linear infinite;
+}
+
+@keyframes s{
+    0%{
+        width:0;
+        height:0;
+        opacity: 1;
+    }
+    100%{
+        width:100px;
+        height:100px;
+        opacity: 0;
+    }
+}
+
+.loading::after{
+    animation-delay:0.75s;
 }
