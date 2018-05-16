@@ -169,7 +169,7 @@
                 <div class="progress"></div>
             </div>
         </nav>
-        <div class="works">
+        <div class="works clearfix">
             <div class="big">
                 <img src="./img/1.png" alt="作品1" width="602px" height="602px">
             </div>
@@ -181,6 +181,20 @@
             </div>
         </div>
     </section>
+    <section class="message">
+        <h2>留言</h2>
+        <ol id="messageList">
+        </ol>
+        <form id="messageForm" class="messageForm">
+            <label>姓名</label>
+            <input type="text" name="name" value="">
+            <label>留言</label>
+            <input type="text" name="content" value="">
+            <input type="submit" value="提交">
+        </form>
+    </section>
 </body>
 <script type="text/javascript" src="blog.js"></script>
+<script src="//cdn1.lncld.net/static/js/3.6.8/av-min.js"></script>
+<script type="text/javascript" src="leancloud.js"></script>
 </html>
